@@ -1,7 +1,6 @@
 import model.Address;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Day8_DuplicatedAddresses {
@@ -14,14 +13,33 @@ public class Day8_DuplicatedAddresses {
 
     public static void main(String[] args) {
         List<Address> addresses = prepareAddresses();
-        System.out.println(removeDuplicates(addresses));
+        System.out.println(removeDuplicatesSet(addresses));
+
 
     }
 
-    private static List<Address> removeDuplicates(List<Address> givenAddresses){
+    private static List<Address> removeDuplicatesStream(List<Address> givenAddresses){
         return givenAddresses.stream().distinct().toList();
 
     }
+    private static List<Address> removeDuplicatesForLoop(List<Address> givenAddresses){
+        List<Address> returnList = new ArrayList<>();
+        for(Address x : givenAddresses){
+            if(!returnList.contains(x)){
+                returnList.add(x);
+            }
+
+        }
+        return returnList;
+
+    }
+
+    private static List<Address> removeDuplicatesSet(List<Address> givenAddresses){
+        return new HashSet<Address>(givenAddresses).stream().toList();
+
+    }
+
+
 
     private static List<Address> prepareAddresses() {
         List<Address> addresses = new ArrayList<>();
