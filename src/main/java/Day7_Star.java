@@ -1,5 +1,3 @@
-package model;
-
 public class Day7_Star {
 
     /**
