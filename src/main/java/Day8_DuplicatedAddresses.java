@@ -13,11 +13,17 @@ public class Day8_DuplicatedAddresses {
 
     public static void main(String[] args) {
         List<Address> addresses = prepareAddresses();
-        System.out.println(removeDuplicatesSet(addresses));
 
+        for (int i = 0; i < addresses.size(); i++) {
+            for (int j = i + 1; j < addresses.size(); j++) {
+                if (addresses.get(i).equals(addresses.get(j))) {
+                    addresses.remove(addresses.get(j));
+                    j--;
+                }
+            }
+        }
 
     }
-
     private static List<Address> removeDuplicatesStream(List<Address> givenAddresses){
         return givenAddresses.stream().distinct().toList();
 

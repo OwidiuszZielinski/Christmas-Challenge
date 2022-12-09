@@ -2,34 +2,34 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
+import javax.swing.*;
 public class ChatGPTTest extends JFrame {
 
-    public static void main(String[] args) {
-        ChatGPTTest chatGPTTest = new ChatGPTTest();
-        System.out.println(chatGPTTest);
-    }
+        public static void main(String[] args) {
+            // Create a 9x9 table
+            int rows = 9;
+            int columns = 9;
+            Object[][] data = new Object[rows][columns];
 
-    public ChatGPTTest() {
-        // create the frame
-        setTitle("My Frame");
-        setSize(400, 300);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            // Initialize the table with empty values
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < columns; j++) {
+                    data[i][j] = "";
+                }
+            }
 
-        // create the panel
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(2, 5));
+            // Create the table
+            Object[] columnNames = new Object[9];
+            JTable table = new JTable(data ,columnNames);
 
-        // create the buttons
-        for (int i = 1; i <= 10; i++) {
-            JButton button = new JButton("Button " + i);
-            panel.add(button);
+            // Add the table to a scroll pane
+            JScrollPane scrollPane = new JScrollPane(table);
+
+            // Add the scroll pane to a frame
+            JFrame frame = new JFrame("My Table");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.add(scrollPane);
+            frame.pack();
+            frame.setVisible(true);
         }
-
-        // add the panel to the frame
-        add(panel);
-
-        // show the frame
-        setVisible(true);
     }
-}
