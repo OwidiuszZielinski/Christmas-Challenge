@@ -20,7 +20,7 @@ public class Day9_VowelsCount {
 
     }
 
-    //Metoda z listy adresów tworzy jeden String
+    //Metoda spłaszcza kolekcje adresów na jeden String
     private static String addressesToString(List<Address> addresses){
         String flatAddress = "";
         for(Address x : addresses){
@@ -30,8 +30,8 @@ public class Day9_VowelsCount {
         return flatAddress;
 
     }
-    //Metoda zamienia usuwa samogłoski i sprawdza o ile skrócił się nam string
-    //Wynik mnożymy x 2 zł dopłaty
+    //Metoda usuwa samogłoski i sprawdza o ile skrócił się nam string
+    //Zwracamy ilość samogłosek x 2 zł dopłaty
     private static int countSurcharge(String addresses){
         String x = addresses.replaceAll("(?i)[aeiouy]" ,"");
         return (addresses.length() - x.length()) * 2;
