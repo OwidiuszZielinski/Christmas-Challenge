@@ -13,44 +13,49 @@ public class Day10_ChristmasCandy {
 
         int height = 20;
 
-        // TODO: prepare function which draw in console christmas candy
-        int prop = (height * 25 )/100;
-        int half = (height * 40 )/100;
+        candyDrawer(height);
 
+        // TODO: prepare function which draw in console christmas candy
+
+
+    }
+
+    public static void candyDrawer(int height) {
+        final int propOne = (height * 25) / 100;
+        final int propTwo = (height * 40) / 100;
+        final int half = (height * 50) / 100;
         for (int i = 0; i < height; i++) {
 
-            if(i<prop-2){
+            if (i < propOne - 2) {
                 for (int j = 0; j < height; j++) {
-                    if(j <=0 && i <=0){
+                    if (j <= 0 && i <= 0) {
                         System.out.print(" ");
                         continue;
                     }
-                    if(j>3 && j<8 ){
+                    if (j > propOne && j < half) {
                         continue;
                     }
                     System.out.print(" #");
                 }
 
-            }
-            else
+            } else
 
-            for (int j = 0; j < height; j++) {
+                for (int j = 0; j < height; j++) {
 
-                if(j>3 && j<8 ){
-                    continue;
+                    if (j > propOne && j < half) {
+                        continue;
+                    }
+                    if (j > height - propOne) {
+                        System.out.print(" #");
+                        continue;
+                    }
+                    if (i < propTwo - 1 && j < propOne - 1) {
+                        System.out.print(" #");
+                        continue;
+                    }
+
+                    System.out.print("  ");
                 }
-                if (j > height - prop) {
-                    System.out.print(" #");
-                    continue;
-                }
-                if(i<half-1 && j<prop-1){
-                    System.out.print(" #");
-                    continue;
-                }
-
-                System.out.print("  ");
-            }
-
 
             System.out.println();
         }
