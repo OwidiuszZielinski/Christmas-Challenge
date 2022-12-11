@@ -12,8 +12,14 @@ public class Day10_ChristmasCandy {
     public static void main(String[] args) {
 
         int height = 20;
+        for (int i = 0; i < 5; i++) {
+            System.out.println();
+        }
 
         candyDrawer(height);
+        for (int i = 0; i < 5; i++) {
+            System.out.println();
+        }
 
         // TODO: prepare function which draw in console christmas candy
 
@@ -24,6 +30,7 @@ public class Day10_ChristmasCandy {
         final int propOne = (height * 25) / 100;
         final int propTwo = (height * 40) / 100;
         final int half = (height * 50) / 100;
+
         for (int i = 0; i < height; i++) {
 
             if (i < propOne - 2) {
