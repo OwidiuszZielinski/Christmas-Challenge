@@ -11,6 +11,8 @@ public class Day10_ChristmasCandy {
 
     public static void main(String[] args) {
 
+
+
         int height = 20;
         for (int i = 0; i < 5; i++) {
             System.out.println();
@@ -27,6 +29,9 @@ public class Day10_ChristmasCandy {
     }
 
     public static void candyDrawer(int height) {
+        String ANSI_RESET = "\u001B[0m";
+        String ANSI_RED = "\u001B[31m";
+
         final int propOne = (height * 25) / 100;
         final int propTwo = (height * 40) / 100;
         final int half = (height * 50) / 100;
@@ -35,14 +40,21 @@ public class Day10_ChristmasCandy {
 
             if (i < propOne - 2) {
                 for (int j = 0; j < height; j++) {
+
                     if (j <= 0 && i <= 0) {
                         System.out.print(" ");
                         continue;
                     }
                     if (j > propOne && j < half) {
                         continue;
+                    } else {
+                        if (i%2 == 0) {
+                            System.out.print(ANSI_RED + " #" + ANSI_RESET);
+                            continue;
+                        }
+                        System.out.print(" #");
                     }
-                    System.out.print(" #");
+
                 }
 
             } else
@@ -53,11 +65,21 @@ public class Day10_ChristmasCandy {
                         continue;
                     }
                     if (j > height - propOne) {
-                        System.out.print(" #");
+                        if(i%2==0){
+                            System.out.print(ANSI_RED + " #" + ANSI_RESET);
+                        }
+                        else {
+                            System.out.print(" #");
+                        }
                         continue;
                     }
                     if (i < propTwo - 1 && j < propOne - 1) {
-                        System.out.print(" #");
+                        if(i%2==0){
+                            System.out.print(ANSI_RED + " #" + ANSI_RESET);
+                        }
+                        else {
+                            System.out.print(" #");
+                        }
                         continue;
                     }
 
