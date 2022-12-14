@@ -23,7 +23,6 @@ public class Day5_SortAdresses {
 
     }
 
-
     private static List<Address> prepareAddresses() {
         List<Address> addresses = new ArrayList<>();
 
