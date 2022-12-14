@@ -23,7 +23,8 @@ public class Day14_SplitPresentsList {
         for (int i = 0; i < result.length; i++) {
             String name = result[i].substring(0 ,result[i].indexOf(" "));
             System.out.print(name + " => ");
-            String gifts = result[i].substring(result[i].indexOf(" "));
+
+            String gifts = result[i].substring(result[i].indexOf(" ") + 1).replace(" " ," ,");
             System.out.println(gifts);
 
         }
