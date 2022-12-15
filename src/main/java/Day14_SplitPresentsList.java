@@ -13,7 +13,7 @@ public class Day14_SplitPresentsList {
 
         String giftsList = "Kuba klocki klawiatura dron quad, Alicja komputer samochod mysz, "
                 + "Janina ksiazka traktor, Tomek kuchenka koparka flamastry, ";
-        printBasicForm(giftsList);
+
         System.out.println(mapChildGifts(giftsList));
 
     }
@@ -35,17 +35,16 @@ public class Day14_SplitPresentsList {
 
         List<String> strings = List.of(giftsList.split(", "));
         Map<String, List<String>> map = new HashMap<>();
+        Queue<String> queue = new LinkedList<>();
+
         for (String x : strings) {
             String[] array = x.split(" ");
-            List<String> gifts = new ArrayList<>();
-            for (int i = 0; i < array.length - 1; i++) {
-                gifts.add(array[i + 1]);
-                if (i == 0) {
-                    map.put(array[i] ,gifts);
-                }
-            }
+            for (int i = 0; i < array.length; i++) {
+                queue.offer(array[i]);
 
+            }
         }
+        System.out.println(queue);
         return map;
 
     }
