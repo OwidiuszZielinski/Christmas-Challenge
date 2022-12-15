@@ -20,10 +20,32 @@ public class Day15_RecalculateIngredients {
                 "Czekolada" ,200 ,
                 "Maslo" ,200
         );
-        System.out.println(calculateIngredients(calculateRectangleField(20 ,30) ,calculateCircleField(9.8) ,ingredientsForRectangleForm));
+        Map<String, Double> stringDoubleMap = calculateIngredients(calculateRectangleField(20 ,30) ,calculateCircleField(4) ,ingredientsForRectangleForm);
+        printIngredients(stringDoubleMap);
 
 
         // TODO: prepare function which calculate amount of ingredients for circle form
+
+    }
+
+    private static void printIngredients(Map<String, Double> toPrint) {
+        System.out.println("Ingredients after calculate is : ");
+        for (Map.Entry<String, Double> x : toPrint.entrySet()) {
+
+            if (x.getKey().equals("Jajka")) {
+                System.out.print("You need : ");
+                double value = x.getValue();
+                if (String.valueOf(x.getValue()).endsWith("5")) {
+
+                    System.out.println(x.getKey() + " amount : " + (int) value + " 1/2 [pcs]");
+                    continue;
+                } else
+                    System.out.println(x.getKey() + " amount : " + (int) value + " [pcs]");
+                continue;
+            }
+            System.out.print("You need : ");
+            System.out.println(x.getKey() + " amount : " + x.getValue() + " [g]");
+        }
 
     }
 
@@ -35,11 +57,21 @@ public class Day15_RecalculateIngredients {
         return Math.PI * Math.pow(r ,2);
     }
 
-    private static Map<String, Integer> calculateIngredients(double rectangleFormField ,double circleFormField ,Map<String, Integer> ingredientsForRectangleForm) {
+    private static Map<String, Double> calculateIngredients(double rectangleFormField ,double circleFormField ,Map<String, Integer> ingredientsForRectangleForm) {
         double proportion = (circleFormField / rectangleFormField) * 100;
-        Map<String, Integer> ingredients = new HashMap<>();
+        Map<String, Double> ingredients = new HashMap<>();
         for (Map.Entry<String, Integer> x : ingredientsForRectangleForm.entrySet()) {
-            ingredients.put(x.getKey() ,(int)Math.round((x.getValue() * proportion / 100)));
+            if (x.getKey().equals("Jajka")) {
+                double value = x.getValue() * proportion / 100;
+                int valueFirstNumber = (int) value;
+                if (value > valueFirstNumber + 0.25 && value < valueFirstNumber + 0.75) {
+                    ingredients.put(x.getKey() ,valueFirstNumber + 0.5);
+                    continue;
+                }
+
+            }
+            ingredients.put(x.getKey() ,(double) Math.round(x.getValue() * proportion / 100));
+
         }
         return ingredients;
     }
