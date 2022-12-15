@@ -20,15 +20,23 @@ public class Day15_RecalculateIngredients {
                 "Czekolada" ,200 ,
                 "Maslo" ,200
         );
-        System.out.println(calculateIngredients(50.0 ,9.8 ,ingredientsForRectangleForm));
+        System.out.println(calculateIngredients(calculateRectangleField(20,30) ,calculateCircleField(9.8) ,ingredientsForRectangleForm));
 
 
         // TODO: prepare function which calculate amount of ingredients for circle form
 
     }
 
-    private static Map<String, Integer> calculateIngredients(double sumOfSidesRectangleForm ,double radiusCircleForm ,Map<String, Integer> ingredientsForRectangleForm) {
-        double proportion = (radiusCircleForm / sumOfSidesRectangleForm) * 100;
+    private static double calculateRectangleField(double a ,double b){
+        return a*b;
+    }
+    private static double calculateCircleField(double r){
+        r = r/2;
+        return Math.PI * Math.pow(r,2);
+    }
+
+    private static Map<String, Integer> calculateIngredients(double rectangleFormField ,double circleFormField ,Map<String, Integer> ingredientsForRectangleForm) {
+        double proportion = (circleFormField / rectangleFormField) * 100;
         Map<String, Integer> ingredients = new HashMap<>();
         for (Map.Entry<String, Integer> x : ingredientsForRectangleForm.entrySet()) {
             ingredients.put(x.getKey() ,(int) Math.ceil((x.getValue() * proportion / 100)));
