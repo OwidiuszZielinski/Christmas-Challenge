@@ -29,11 +29,8 @@ public class Day18_SongPrompter {
     private static void prompter(String lyrics) {
         String[] lines = lyrics.split("\n");
         try {
-            for (int i = 0; i < lines.length; i++) {
-                if(i==0){
-                    System.out.println(lines[i]);
-                }else
-                    System.out.println(lines[i]);
+            for (String line : lines) {
+                System.out.println(line);
                 TimeUnit.SECONDS.sleep(3);
             }
         } catch (InterruptedException e) {
