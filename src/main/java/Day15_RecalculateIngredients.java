@@ -20,7 +20,7 @@ public class Day15_RecalculateIngredients {
                 "Czekolada" ,200 ,
                 "Maslo" ,200
         );
-        Map<String, Double> stringDoubleMap = calculateIngredients(calculateRectangleField(20 ,30) ,calculateCircleField(4) ,ingredientsForRectangleForm);
+        Map<String, Double> stringDoubleMap = calculateIngredients(calculateRectangleField(20 ,30) ,calculateCircleField(8) ,ingredientsForRectangleForm);
         printIngredients(stringDoubleMap);
 
 
