@@ -30,8 +30,14 @@ public class Day18_SongPrompter {
         String[] lines = lyrics.split("\n");
         try {
             for (String s : lines) {
-                System.out.println(s);
-                TimeUnit.SECONDS.sleep(3);
+                for (int i = 0; i < s.length(); i++) {
+                    TimeUnit.MILLISECONDS.sleep(3000/ s.length());
+                    System.out.print(s.charAt(i));
+                }
+                System.out.println();
+
+
+
 
             }
 
