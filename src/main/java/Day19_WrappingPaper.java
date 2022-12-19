@@ -34,16 +34,13 @@ public class Day19_WrappingPaper {
     }
 
     private static double calculatePaper(Map<Box, Integer> boxes) {
-        double paper = (boxes.entrySet()
+        return  Math.round((boxes.entrySet()
                 .stream()
                 .mapToDouble(
                         box -> 2 * (box.getKey().getX() * box.getKey().getY() * box.getValue())
                                 + 2 * (box.getKey().getX() * box.getKey().getZ() * box.getValue())
                                 + 2 * (box.getKey().getY() * box.getKey().getZ()) * box.getValue())
-                .sum() / 10000);
-       
-
-        String format = String.format("%.1f" ,paper).replace("," ,".");
-        return Double.parseDouble(format);
+                .sum() / 10000));
+        
     }
 }
