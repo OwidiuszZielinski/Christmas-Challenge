@@ -10,9 +10,12 @@ public class Day21_SwapValues {
     public static void main(String[] args) {
         int places = 10;
         int reindeers = 100;
+        final String ANSI_RED = "\u001B[31m";
+        final String ANSI_GREEN = "\u001B[32m";
+        final String ANSI_RESET = "\u001B[0m";
 
-        System.out.println("Before switch: places = " + places);
-        System.out.println("Before switch: reindeers = " + reindeers);
+        System.out.println(ANSI_RED + "Before switch: places = " + places + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "Before switch: reindeers = " + reindeers + ANSI_RESET);
         //First way
 //        reindeers += places;
 //        places = reindeers -places;
@@ -21,7 +24,8 @@ public class Day21_SwapValues {
         //Second way
         places = places ^ reindeers ^ (reindeers = places);
 
-        System.out.println("After switch: places = " + places);
-        System.out.println("After switch: reindeers = " + reindeers);
+
+        System.out.println(ANSI_RED + "After switch: places = " + places + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "After switch: reindeers = " + reindeers + ANSI_RESET);
     }
 }
