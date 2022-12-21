@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Day21_SwapValues {
     /**
      * Mikołaj znów przyoszczedził na pakiecie. Tym razem dla ilości zmiennych.
@@ -22,7 +24,16 @@ public class Day21_SwapValues {
 //        reindeers =reindeers-places;
 
         //Second way
-        places = places ^ reindeers ^ (reindeers = places);
+//        places = places ^ reindeers;
+//        reindeers = places ^ reindeers;
+//        places = places ^ reindeers;
+
+        //Third way
+        places = reindeers+(reindeers=places)-reindeers;
+
+        //Fourth way
+
+        //places = places ^ reindeers ^ (reindeers=places);
 
 
         System.out.println(ANSI_RED + "After switch: places = " + places + ANSI_RESET);
