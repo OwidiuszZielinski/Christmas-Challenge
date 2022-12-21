@@ -1,9 +1,7 @@
 import model.Box;
 
-import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class Day19_WrappingPaper {
 
@@ -24,7 +22,7 @@ public class Day19_WrappingPaper {
 
         Map<Box, Integer> boxes = new HashMap<>();
         boxes.put(small ,5);
-        boxes.put(medium ,10);
+        boxes.put(medium ,15);
         boxes.put(big ,3);
 
         System.out.println("We need : " + calculatePaper(boxes) + " [m2]");
@@ -34,7 +32,7 @@ public class Day19_WrappingPaper {
     }
 
     private static double calculatePaper(Map<Box, Integer> boxes) {
-        return  Math.round((boxes.entrySet()
+        return  Math.ceil((boxes.entrySet()
                 .stream()
                 .mapToDouble(
                         box -> 2 * (box.getKey().getX() * box.getKey().getY() * box.getValue())
