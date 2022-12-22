@@ -34,7 +34,7 @@ public class Day21_SwapValues {
         //Fourth way
 
         places = places ^ reindeers ^ (reindeers=places);
-        
+
         //WYRAŻENIE JEST WYKONYWANE OD LEWEJ DO PRAWEJ
         //NAJPIERW WYKONUJEMY places XOR reinderss co daje 110 ponieważ bitowo XOR zwaraca 1 wtedy i tylko wtedy gdy mamy różne bity  (Dla 1 1 - > 0 oraz 0 0 - > 0)
         //POZNIEJ przypisujemy do reinders liczbe z places i robimy na tym XOR czyli 110 XOR 10 co daje 100;
