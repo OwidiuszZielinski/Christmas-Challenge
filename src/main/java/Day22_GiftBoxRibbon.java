@@ -14,13 +14,13 @@ public class Day22_GiftBoxRibbon {
         int boxesAmount = 5;
 
         System.out.println("Santa need : "+calculateRibbon(box,boxesAmount) + " [cm] ribbon");
-        System.out.println("Santa need : "+ Math.round(calculateRibbon(box,boxesAmount)/100) + " [m] ribbon");
+        System.out.println("Santa need : "+ Math.ceil(calculateRibbon(box,boxesAmount)/100) + " [m] ribbon");
 
     }
 
     private static double calculateRibbon(Box box ,int boxesAmount) {
-        double sizeA = 2 * box.getX() + (2 * box.getZ());
-        double sizeB = 2 * box.getY() + (2 * box.getZ());
+        double sizeA = 2 * box.getZ() + (2 * box.getX());
+        double sizeB = 2 * box.getY() + (2 * box.getX());
         double supply = 1.5;
         return boxesAmount * (sizeA + sizeB) * supply;
 
