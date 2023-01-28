@@ -13,9 +13,8 @@ public class Day23 {
 
         int height = 15;
         printBow(height);
-        
-        
-        
+
+
     }
 
     private static void printBow(int height) {
